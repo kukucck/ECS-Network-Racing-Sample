@@ -96,14 +96,14 @@ namespace Unity.Entities.Racing.Gameplay
             var audioSource = InstantiateAudioSource(instance, StartEngine, is2D);
             instance.name = $"{(is2D ? "2D" : "3D")} AudioSource - Entity : [{player.Index}]";
             
-            var data = new AudioReference
+            var audioSourceReference = new AudioReference
             {
                 GameObject = instance,
                 AudioSource = audioSource,
                 StartEngine = audioSource.clip
             };
 
-            m_Collection.Add(player, data);
+            m_Collection.Add(player, audioSourceReference);
             SceneManager.MoveGameObjectToScene(instance, m_AdditiveScene);
             StartCoroutine(InitEngine(audioSource));
         }
