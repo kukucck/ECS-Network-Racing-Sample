@@ -31,18 +31,18 @@ namespace Unity.Entities.Racing.Gameplay
             var filter = PhysicsWorld.GetCollisionFilter(index);
             filter.CollidesWith = (uint)vehicleChassis.CollisionMask;
 
-            var start = localTransform.Position - mass.CenterOfMass * 5; // TODO: Expose as authoring field
+            var raycastStartPoint = localTransform.Position - mass.CenterOfMass * 5; // TODO: Expose as authoring field
             // FIXME: localTransform.up is not up to date here
-            var end = localTransform.Position - mass.CenterOfMass - localTransform.Up();
-            if (!math.isfinite(end).x)
+            var raycastEndPoint = localTransform.Position - mass.CenterOfMass - localTransform.Up();
+            if (!math.isfinite(raycastEndPoint).x)
             {
                 return;
             }
 
             var input = new RaycastInput
             {
-                Start = start,
-                End = end,
+                Start = raycastStartPoint,
+                End = raycastEndPoint,
                 Filter = filter
             };
 
