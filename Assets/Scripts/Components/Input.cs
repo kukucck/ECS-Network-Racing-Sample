@@ -6,8 +6,8 @@ namespace Unity.Entities.Racing.Common
 {
     public struct CarInput : IInputComponentData
     {
-        public float Break;
-        public float Handbreak;
+        public float Brake;
+        public float Handbrake;
         public float Vertical;
         public float Horizontal;
         public bool EngineStartStop;
