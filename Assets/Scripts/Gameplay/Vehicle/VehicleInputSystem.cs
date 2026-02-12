@@ -34,8 +34,8 @@ namespace Unity.Entities.Racing.Gameplay
                 input.ValueRW.Vertical = default;
 
                 var inputData = playerInput.ValueRO.GetInput();
-                var vehicleBreak = inputData.Break.WasPressedThisFrame() ? 1f  : 0f;
-                var handbreak = inputData.Handbrake.WasPressedThisFrame() ? 1f : 0f;
+                var brakePressureInput = inputData.Break.WasPressedThisFrame() ? 1f  : 0f;
+                var handbrakeInput = inputData.Handbrake.WasPressedThisFrame() ? 1f : 0f;
                 var engineStartStop = inputData.EngineStartStop.WasPressedThisFrame();
                 
                 var move = inputData.Move.ReadValue<Vector2>();
@@ -53,8 +53,8 @@ namespace Unity.Entities.Racing.Gameplay
 
                 input.ValueRW.Vertical          = vertical;
                 input.ValueRW.Horizontal        = horizontal;
-                input.ValueRW.Break             = vehicleBreak;
-                input.ValueRW.Handbreak         = handbreak;
+                input.ValueRW.Brake             = brakePressureInput;
+                input.ValueRW.Handbrake         = handbrakeInput;
                 input.ValueRW.EngineStartStop   = engineStartStop;
 
                 playerInput.ValueRO.Free();
@@ -102,8 +102,8 @@ namespace Unity.Entities.Racing.Gameplay
         void Execute(ref CarInput playerInputs, ref VehicleControl vehicleControl)
         {
             vehicleControl.RawThrottleInput = default;
-            vehicleControl.RawBrakeInput    = playerInputs.Break;
-            vehicleControl.HandbrakeInput   = playerInputs.Handbreak;
+            vehicleControl.RawBrakeInput    = playerInputs.Brake;
+            vehicleControl.HandbrakeInput   = playerInputs.Handbrake;
             vehicleControl.RawSteeringInput = playerInputs.Horizontal;
             vehicleControl.EngineStartStopInput = playerInputs.EngineStartStop;
 

@@ -113,8 +113,8 @@ namespace Unity.Entities.Racing.Gameplay
                 // Create an entity to allow server to reset when all players disconnect 
                 if (!HasSingleton<ResetServerOnDisconnect>())
                 {
-                    var e = state.EntityManager.CreateEntity();
-                    commandBuffer.AddComponent<ResetServerOnDisconnect>(e);
+                    var resetServerEntity = state.EntityManager.CreateEntity();
+                    commandBuffer.AddComponent<ResetServerOnDisconnect>(resetServerEntity);
                 }
             }
 
