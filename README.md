@@ -10,6 +10,18 @@ https://unity.com/releases/editor/whats-new/6000.2.11f1
 
 Current Version project: *3.0.0*
 
+## 📚 Learning Resources
+
+**New to ECS?** Check out our comprehensive beginner's guides:
+- **[ECS初学者指南 (Chinese)](./ECS初学者指南.md)** - 完整的 ECS 核心功能目录和学习路径
+- **[ECS Beginners Guide (English)](./ECS-BEGINNERS-GUIDE.md)** - Complete ECS core features directory and learning path
+
+These guides provide:
+- Core ECS functionality directory structure
+- Recommended code reading order for beginners
+- Detailed explanations of Components, Systems, and Authoring
+- Code examples and learning tips
+
 # Unity Hub URL
 unityhub://6000.2.11f1/7134d7685e5d
 
