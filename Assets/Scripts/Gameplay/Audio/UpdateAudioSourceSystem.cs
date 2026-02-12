@@ -34,7 +34,7 @@ namespace Unity.Entities.Racing.Gameplay
                 return;
             }
 
-            var ecb = new EntityCommandBuffer(state.WorldUpdateAllocator);
+            var entityCommandBuffer = new EntityCommandBuffer(state.WorldUpdateAllocator);
             foreach (var (car, entity) in Query<RefRO<Player>>()
                          .WithAll<GhostOwner>()
                          .WithAll<Player>()
@@ -43,7 +43,7 @@ namespace Unity.Entities.Racing.Gameplay
             {
                 var isLocalUser = state.EntityManager.HasComponent<LocalUser>(entity);
                 PlayerAudioManager.Instance.AddAudioSource(entity, isLocalUser);
-                ecb.AddComponent<AudioSourceTag>(entity);
+                entityCommandBuffer.AddComponent<AudioSourceTag>(entity);
             }
 
             foreach (var (localToWorld, volumeData, velocity, entity) in 
@@ -58,8 +58,8 @@ namespace Unity.Entities.Racing.Gameplay
                     state.EntityManager);
             }
 
-            ecb.Playback(state.EntityManager);
-            ecb.Dispose();
+            entityCommandBuffer.Playback(state.EntityManager);
+            entityCommandBuffer.Dispose();
         }
     }
 
