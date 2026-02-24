@@ -1,4 +1,17 @@
 <linker>
 	<!--Preserve entire assembly-->
 	<assembly fullname="Unity.Entities.Graphics" preserve="all"/>
+
+	<!--
+	    MessagePack-CSharp: preserve serialization infrastructure so that IL2CPP
+	    (AOT compilation) does not strip types needed at runtime.
+	    Required because Unity's C# 9 environment does not support the source
+	    generators used by MessagePack in .NET 6+; instead we rely on attribute-
+	    based serialization with StaticCompositeResolver (see MessagePackInitializer).
+	-->
+	<assembly fullname="MessagePack" preserve="all"/>
+	<assembly fullname="MessagePack.Annotations" preserve="all"/>
+
+	<!--Preserve project serialization types used with MessagePack-->
+	<assembly fullname="Unity.Entities.Racing.Serialization" preserve="all"/>
 </linker>

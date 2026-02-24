@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.neuecc.messagepack": "https://github.com/MessagePack-CSharp/MessagePack-CSharp.git?path=src/MessagePack.UnityClient/Assets/Scripts/MessagePack#v2.5.187",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.burst": "1.8.25",
     "com.unity.cinemachine": "3.1.5",
